@@ -1,0 +1,14 @@
+#!/usr/bin/env ruby
+
+require 'yaml'
+require 'optparse'
+require 'pry'
+require './lib/learn_linter'
+
+ARGV.each do |dir|
+  lint = LearnLinter.new(dir).lint_directory
+  
+end
+
+
+
