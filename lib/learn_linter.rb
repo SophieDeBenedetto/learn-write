@@ -19,7 +19,7 @@ class LearnLinter
   def lint_directory
     self.yaml_lint
     self.license_lint
-    #self.readme_lint
+    self.readme_lint
     @learn_error.result_output
     @learn_error.total_errors
   end

@@ -1,7 +1,6 @@
 class LearnError < StandardError
   attr_accessor :filepath, :valid_yaml, :valid_license, 
-  :present_learn, :present_license, :success, :yaml_error, 
-  :license_error, :readme_error
+  :present_learn, :present_license, :present_readme, :success, :yaml_error, :readme_error, :license_error
 
   ESCAPES = { :green  => "\033[32m",
               :yellow => "\033[33m",
@@ -11,7 +10,7 @@ class LearnError < StandardError
 
   def initialize
     @yaml_error = {present_dotlearn: false, valid_yaml: false, valid_whitespace: false}
-    @readme_error = {present_readme: false, valid_readme: false}
+    @readme_error = {present_readme: false, valid_readme: nil}
     @license_error = {present_license: false, valid_license: false}
   end
 
