@@ -1,7 +1,7 @@
 require_relative './learn_linter/version'
 require_relative './learn_linter/learn_error'
 require_relative './learn_linter/license_linter'
-#require_relative './learn_linter/readme_linter'
+require_relative './learn_linter/readme_linter'
 require_relative './learn_linter/yaml_linter'
 
 class LearnLinter
@@ -37,29 +37,25 @@ class LearnLinter
   def yaml_lint
     if self.has_file?(".learn")
       @learn_error.yaml_error[:present_dotlearn] = true
+      @learn_error.present_learn = {message: "present .learn file", color: :green}
       YamlLint.parse_file("#{filepath}/.learn", @learn_error)
-    else
-      @learn_error.present_learn = {message: "missing .learn file", color: :red}
+    # else
     end
   end
 
   def license_lint
     if self.has_file?("LICENSE.md")
       @learn_error.license_error[:present_license] = true
+      @learn_error.present_license = {message: "present LICENSE.md", color: :green}
       LicenseLinter.parse_file("#{filepath}/LICENSE.md", @learn_error)
-    else
-      @learn_error.present_learn = {message: "missing LICENSE.md", color: :red}
-
     end
   end
 
   def readme_lint
     if self.has_file?("README.md")
       @learn_error.readme_error[:present_readme] = true
+      @learn_error.present_readme = {message: "present README.md", color: :green}
       #parse
-      
-    else
-      @learn_error.present_readme = {message: "missing README.md", color: :yellow}
     end
   end
 
