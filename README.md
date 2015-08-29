@@ -1,6 +1,6 @@
 # LearnLinter
 
-Gem to accompany Learn curriculum development. Install gem and run from command line with `learn-lint < directory name >. Given a directory, the gem will lint for 
+Gem to accompany Learn curriculum development. Install gem and run from command line with `learn-lint < directory name >`. Given a directory, the gem will lint for 
 
 * precense of `.learn` file
 * valid yaml in `.learn` file
@@ -8,6 +8,7 @@ Gem to accompany Learn curriculum development. Install gem and run from command 
 * precense of `LICENSE.md`
 * valid license content in that file. 
 * precense of `README.md`
+* valid code snippets in `README.md`
 
 
 ## Installation
