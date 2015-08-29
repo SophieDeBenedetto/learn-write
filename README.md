@@ -28,7 +28,7 @@ Or install it yourself as:
 
 ## Usage
 
-Run from command line with `learn-lint < directory name >
+Run from command line with `learn-lint < directory name >`
 
 
 ## License

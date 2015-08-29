@@ -6,13 +6,11 @@ require_relative './learn_linter/yaml_linter'
 
 class LearnLinter
 
-  attr_accessor :filepath, :valid_yaml, :valid_license, :present_learn, :present_license, :success 
-
+  attr_accessor :filepath
 
 
   def initialize(filepath)
     @filepath = filepath
-    @success = {learn: false, license: false, readme: false}
     @learn_error = LearnError.new
   end
 
@@ -27,11 +25,7 @@ class LearnLinter
 
 
   def has_file?(file)
-    if Dir.entries(filepath).include?(file)
-      true
-    else
-      false
-    end
+    Dir.entries(filepath).include?(file)
   end
 
   def yaml_lint
@@ -39,7 +33,6 @@ class LearnLinter
       @learn_error.yaml_error[:present_dotlearn] = true
       @learn_error.present_learn = {message: "present .learn file", color: :green}
       YamlLint.parse_file("#{filepath}/.learn", @learn_error)
-    # else
     end
   end
 
