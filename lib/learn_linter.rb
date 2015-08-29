@@ -48,7 +48,7 @@ class LearnLinter
     if self.has_file?("README.md")
       @learn_error.readme_error[:present_readme] = true
       @learn_error.present_readme = {message: "present README.md", color: :green}
-      #parse
+      ReadmeLinter.parse_file("#{filepath}/README.md", @learn_error)
     end
   end
 
