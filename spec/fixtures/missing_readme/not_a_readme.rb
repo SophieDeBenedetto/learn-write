@@ -10,7 +10,7 @@ anything def DHH automagical I love Rails Ironboard infobesity do we want to mak
 babies in general cry or do we want to make an instance of baby cry? pull request 
 you just say \"get me Chicken Kiev\" and the model makes you Chicken Kiev erb
 binder.ply message open source ORM do you guys wanna see something cool object 
-oriented truthy-ness end I love Rails blog posts ironbot binding.pry Rails do
+                                                         # oriented truthy-ness end I love Rails blog posts ironbot binding.pry Rails do
 you guys wanna see something cool config url RESTful Programmer of the Day binder.ply 
 puts \"woof\" PATCH methods what the shit is that <3 create HTTP is stateless 
 metaprogramming you just say \"get me Chicken Kiev\" and the model makes you Chicken Kiev 

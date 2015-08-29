@@ -4,7 +4,7 @@ FIXTURES_PATH = File.dirname(__FILE__) + '/fixtures/'
 
 describe LearnLinter do
   it 'has a version number' do
-    expect(LearnLinter::VERSION).not_to be nil
+    expect(LearnLinter::VERSION).not_to be false
   end
 
   describe '#lint_directory' do 
@@ -16,7 +16,7 @@ describe LearnLinter do
       :license => 
         {:present_license => false, :valid_license => false}, 
       :readme => 
-        {:present_readme => false, :valid_readme => nil}} 
+        {:present_readme => false, :valid_readme => false}} 
     }
 
     let(:present_learn_invalid_yaml){ 
@@ -25,7 +25,7 @@ describe LearnLinter do
       :license => 
       {:present_license=>false, :valid_license=>false},
       :readme => 
-      {:present_readme=>false, :valid_readme=>nil}}
+      {:present_readme=>false, :valid_readme=>false}}
     }
 
     let(:present_learn_valid_yaml_invalid_whitespace){
@@ -34,7 +34,7 @@ describe LearnLinter do
       :license => 
         {:present_license=>false, :valid_license=>false},
       :readme => 
-        {:present_readme=>false, :valid_readme=>nil}}
+        {:present_readme=>false, :valid_readme=>false}}
     }
 
     let(:missing_learn) {
@@ -43,7 +43,7 @@ describe LearnLinter do
       :license => 
         {:present_license=>false, :valid_license=>false},
       :readme => 
-        {:present_readme=>false, :valid_readme=>nil}}
+        {:present_readme=>false, :valid_readme=>false}}
 
     }
 
@@ -55,7 +55,7 @@ describe LearnLinter do
       :license => 
         {:present_license=>true, :valid_license=>true},
       :readme => 
-        {:present_readme=>false, :valid_readme=>nil}}
+        {:present_readme=>false, :valid_readme=>false}}
     }
 
     let(:invalid_license) {
@@ -64,7 +64,7 @@ describe LearnLinter do
       :license => 
         {:present_license=>true, :valid_license=>false},
       :readme => 
-        {:present_readme=>false, :valid_readme=>nil}}
+        {:present_readme=>false, :valid_readme=>false}}
     }
 
     let(:missing_license) {
@@ -73,7 +73,7 @@ describe LearnLinter do
       :license => 
         {:present_license=>false, :valid_license=>false},
       :readme => 
-        {:present_readme=>false, :valid_readme=>nil}}
+        {:present_readme=>false, :valid_readme=>false}}
     }
 
     # readme validations only
@@ -84,17 +84,27 @@ describe LearnLinter do
       :license => 
         {:present_license=>false, :valid_license=>false},
       :readme => 
-        {:present_readme=>false, :valid_readme=>nil}}
+        {:present_readme=>false, :valid_readme=>false}}
     }
 
-     let(:present_readme) {
+     let(:present_and_valid_readme) {
       {:dot_learn =>
         {:present_dotlearn=>false, :valid_yaml=>false, :valid_whitespace=>false},
       :license => 
         {:present_license=>false, :valid_license=>false},
       :readme => 
-        {:present_readme=>true, :valid_readme=>nil}}
+        {:present_readme=>true, :valid_readme=>true}}
     }
+
+    let(:invalid_readme) {
+      {:dot_learn =>
+        {:present_dotlearn=>false, :valid_yaml=>false, :valid_whitespace=>false},
+      :license => 
+        {:present_license=>false, :valid_license=>false},
+      :readme => 
+        {:present_readme=>true, :valid_readme=>false}}
+    }
+
 
 
     context '.learn validations' do 
@@ -143,8 +153,13 @@ describe LearnLinter do
       end
 
       it 'approves a directory that contains a README.md' do 
-        linter = LearnLinter.new(FIXTURES_PATH + 'present_readme')
-        expect(linter.lint_directory).to eq(present_readme)
+        linter = LearnLinter.new(FIXTURES_PATH + 'present_and_valid_readme')
+        expect(linter.lint_directory).to eq(present_and_valid_readme)
+      end
+
+      it 'reports on a readme with invalid code snippets' do 
+        linter = LearnLinter.new(FIXTURES_PATH + 'invalid_readme')
+        expect(linter.lint_directory).to eq(invalid_readme)
       end
     end
   end
