@@ -12,7 +12,7 @@ describe LearnLinter do
   #.learn validations only
     let(:valid_learn) { 
       {:dot_learn => 
-        {:present_dotlearn => true, :valid_yaml => true, :valid_whitespace => true}, 
+        {:present_dotlearn => true, :valid_yaml => true, :valid_whitespace => true, :attributes => true}, 
       :license => 
         {:present_license => false, :valid_license => false}, 
       :readme => 
@@ -21,7 +21,7 @@ describe LearnLinter do
 
     let(:present_learn_invalid_yaml){ 
       {:dot_learn => 
-        {:present_dotlearn=>true, :valid_yaml=>false, :valid_whitespace=>false},
+        {:present_dotlearn=>true, :valid_yaml=>false, :valid_whitespace=>false, :attributes => false},
       :license => 
       {:present_license=>false, :valid_license=>false},
       :readme => 
@@ -30,7 +30,7 @@ describe LearnLinter do
 
     let(:present_learn_valid_yaml_invalid_whitespace){
       {:dot_learn =>
-        {:present_dotlearn=>true, :valid_yaml=>true, :valid_whitespace=>false},
+        {:present_dotlearn=>true, :valid_yaml=>true, :valid_whitespace=>false, :attributes => true},
       :license => 
         {:present_license=>false, :valid_license=>false},
       :readme => 
@@ -39,7 +39,7 @@ describe LearnLinter do
 
     let(:missing_learn) {
       {:dot_learn =>
-        {:present_dotlearn=>false, :valid_yaml=>false, :valid_whitespace=>false},
+        {:present_dotlearn=>false, :valid_yaml=>false, :valid_whitespace=>false, :attributes => false},
       :license => 
         {:present_license=>false, :valid_license=>false},
       :readme => 
@@ -51,7 +51,7 @@ describe LearnLinter do
 
     let(:valid_license) {
       {:dot_learn =>
-        {:present_dotlearn=>false, :valid_yaml=>false, :valid_whitespace=>false},
+        {:present_dotlearn=>false, :valid_yaml=>false, :valid_whitespace=>false, :attributes => false},
       :license => 
         {:present_license=>true, :valid_license=>true},
       :readme => 
@@ -60,7 +60,7 @@ describe LearnLinter do
 
     let(:invalid_license) {
       {:dot_learn =>
-        {:present_dotlearn=>false, :valid_yaml=>false, :valid_whitespace=>false},
+        {:present_dotlearn=>false, :valid_yaml=>false, :valid_whitespace=>false, :attributes => false},
       :license => 
         {:present_license=>true, :valid_license=>false},
       :readme => 
@@ -69,7 +69,7 @@ describe LearnLinter do
 
     let(:missing_license) {
       {:dot_learn =>
-        {:present_dotlearn=>false, :valid_yaml=>false, :valid_whitespace=>false},
+        {:present_dotlearn=>false, :valid_yaml=>false, :valid_whitespace=>false, :attributes => false},
       :license => 
         {:present_license=>false, :valid_license=>false},
       :readme => 
@@ -80,7 +80,7 @@ describe LearnLinter do
 
     let(:missing_readme) {
       {:dot_learn =>
-        {:present_dotlearn=>false, :valid_yaml=>false, :valid_whitespace=>false},
+        {:present_dotlearn=>false, :valid_yaml=>false, :valid_whitespace=>false, :attributes => false},
       :license => 
         {:present_license=>false, :valid_license=>false},
       :readme => 
@@ -89,7 +89,7 @@ describe LearnLinter do
 
      let(:present_and_valid_readme) {
       {:dot_learn =>
-        {:present_dotlearn=>false, :valid_yaml=>false, :valid_whitespace=>false},
+        {:present_dotlearn=>false, :valid_yaml=>false, :valid_whitespace=>false, :attributes => false},
       :license => 
         {:present_license=>false, :valid_license=>false},
       :readme => 
@@ -98,7 +98,7 @@ describe LearnLinter do
 
     let(:invalid_readme) {
       {:dot_learn =>
-        {:present_dotlearn=>false, :valid_yaml=>false, :valid_whitespace=>false},
+        {:present_dotlearn=>false, :valid_yaml=>false, :valid_whitespace=>false, :attributes => false},
       :license => 
         {:present_license=>false, :valid_license=>false},
       :readme => 
