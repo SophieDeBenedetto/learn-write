@@ -5,7 +5,6 @@ class ReadmeLinter
     readme = File.open(file).read.split(" ")
     readme.each do |chars|
       if chars.match(/``/)
-        # binding.pry
         if !(chars.match(/```ruby/) || chars.match(/```bash/) || chars.match(/```objc/) || chars.match(/```javascript/) || chars.match(/``` /))
           break
         else
