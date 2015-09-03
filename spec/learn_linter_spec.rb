@@ -162,6 +162,13 @@ describe LearnLinter do
         expect(linter.lint_directory).to eq(invalid_readme)
       end
     end
+
+    context 'when quiet' do 
+      it 'does not emit output when given an option of "quiet" ' do 
+        linter = LearnLinter.new(FIXTURES_PATH + 'invalid_readme', "quiet")
+        expect {linter.lint_directory}.to_not output.to_stdout
+      end
+    end
   end
 end
 

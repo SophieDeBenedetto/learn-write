@@ -5,10 +5,12 @@ require 'optparse'
 require 'pry'
 require './lib/learn_linter'
 
-ARGV.each do |dir|
-  lint = LearnLinter.new(dir).lint_directory
-  
+if ARGV.length > 1 && ARGV[1] == "quiet"
+  lint = LearnLinter.new(ARGV[0], "quiet").lint_directory
+elsif ARGV.length > 1 && ARG[1] != "quiet"
+  puts "please use 'learn-lint directory_name quiet' or 'learn-lint directory_name"
+else
+  lint = LearnLinter.new(ARGV[0]).lint_directory
 end
-
 
 

@@ -29,7 +29,9 @@ Or install it yourself as:
 
 ## Usage
 
-Run from command line with `learn-lint < directory name >`
+Run from command line with `learn-lint < directory name >`.
+
+To turn off error message output to termina, use `learn-lint <directory name> quiet`
 
 
 ## License

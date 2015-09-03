@@ -6,19 +6,22 @@ require_relative './learn_linter/yaml_linter'
 
 class LearnLinter
 
-  attr_accessor :filepath
+  attr_accessor :filepath, :quiet
 
 
-  def initialize(filepath)
+  def initialize(filepath, quiet=nil)
     @filepath = filepath
     @learn_error = LearnError.new
+    @quiet = quiet
   end
 
   def lint_directory
     self.yaml_lint
     self.license_lint
     self.readme_lint
-    @learn_error.result_output
+    unless quiet
+      @learn_error.result_output
+    end
     @learn_error.total_errors
   end
 
