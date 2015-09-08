@@ -23,6 +23,8 @@ Or, from within the directory you want to line, `learn-lint`
 
 To turn off error message output to termina, use `learn-lint <directory name> quiet` or `learn-lint quiet` from within directory you want to lint.
 
+Successes and failures will be printed out to your terminal (in color) :)
+
 
 ## License
 
