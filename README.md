@@ -13,19 +13,8 @@ Gem to accompany Learn curriculum development. Install gem and run from command 
 
 ## Installation
 
-Add this line to your application's Gemfile:
-
-```ruby
-gem 'learnlinter'
-```
-
-And then execute:
-
-    $ bundle
-
-Or install it yourself as:
-
-    $ gem install learnlinter
+1. Clone this repo.
+2. Run `rake install`
 
 ## Usage
 
