@@ -1,8 +1,7 @@
 #!/usr/bin/env ruby
 require 'yaml'
 require 'optparse'
-require 'pry'
-require './lib/learn_linter'
+require_relative '../lib/learn_linter.rb'
 
 if ARGV.length == 0
   dir = File.expand_path(File.dirname(File.dirname(__FILE__)))
