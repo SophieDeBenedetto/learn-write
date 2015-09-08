@@ -13,14 +13,15 @@ Gem to accompany Learn curriculum development. Install gem and run from command 
 
 ## Installation
 
-1. Clone this repo.
-2. Run `rake install`
+From the command line, `gem install learn_linter`.
 
 ## Usage
 
 Run from command line with `learn-lint < directory name >`.
 
-To turn off error message output to termina, use `learn-lint <directory name> quiet`
+Or, from within the directory you want to line, `learn-lint`
+
+To turn off error message output to termina, use `learn-lint <directory name> quiet` or `learn-lint quiet` from within directory you want to lint.
 
 
 ## License
