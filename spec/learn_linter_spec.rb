@@ -8,24 +8,29 @@ describe LearnLinter do
   end
 
   describe '#lint_directory' do 
-
-  #.learn validations only
+    #.learn validations only
     let(:valid_learn) { 
       {:dot_learn => 
         {:present_dotlearn => true, :valid_yaml => true, :valid_whitespace => true, :attributes => true}, 
       :license => 
         {:present_license => false, :valid_license => false}, 
       :readme => 
-        {:present_readme => false, :valid_readme => false}} 
+        {:present_readme => false, :valid_readme => false},
+      :contributing =>
+        {:present_contributing => false, :valid_contributing => false}
+      } 
     }
 
     let(:present_learn_invalid_yaml){ 
       {:dot_learn => 
         {:present_dotlearn=>true, :valid_yaml=>false, :valid_whitespace=>false, :attributes => false},
       :license => 
-      {:present_license=>false, :valid_license=>false},
+        {:present_license=>false, :valid_license=>false},
       :readme => 
-      {:present_readme=>false, :valid_readme=>false}}
+        {:present_readme=>false, :valid_readme=>false},
+      :contributing =>
+        {:present_contributing => false, :valid_contributing => false}
+      }
     }
 
     let(:present_learn_valid_yaml_invalid_whitespace){
@@ -34,7 +39,10 @@ describe LearnLinter do
       :license => 
         {:present_license=>false, :valid_license=>false},
       :readme => 
-        {:present_readme=>false, :valid_readme=>false}}
+        {:present_readme=>false, :valid_readme=>false},
+      :contributing =>
+        {:present_contributing => false, :valid_contributing => false}
+      }
     }
 
     let(:missing_learn) {
@@ -43,8 +51,10 @@ describe LearnLinter do
       :license => 
         {:present_license=>false, :valid_license=>false},
       :readme => 
-        {:present_readme=>false, :valid_readme=>false}}
-
+        {:present_readme=>false, :valid_readme=>false},
+      :contributing =>
+        {:present_contributing => false, :valid_contributing => false}
+      }
     }
 
     # license validations only
@@ -55,7 +65,10 @@ describe LearnLinter do
       :license => 
         {:present_license=>true, :valid_license=>true},
       :readme => 
-        {:present_readme=>false, :valid_readme=>false}}
+        {:present_readme=>false, :valid_readme=>false},
+      :contributing =>
+        {:present_contributing => false, :valid_contributing => false}
+      }
     }
 
     let(:invalid_license) {
@@ -64,7 +77,10 @@ describe LearnLinter do
       :license => 
         {:present_license=>true, :valid_license=>false},
       :readme => 
-        {:present_readme=>false, :valid_readme=>false}}
+        {:present_readme=>false, :valid_readme=>false},
+      :contributing =>
+        {:present_contributing => false, :valid_contributing => false}
+      }
     }
 
     let(:missing_license) {
@@ -73,7 +89,10 @@ describe LearnLinter do
       :license => 
         {:present_license=>false, :valid_license=>false},
       :readme => 
-        {:present_readme=>false, :valid_readme=>false}}
+        {:present_readme=>false, :valid_readme=>false},
+      :contributing =>
+        {:present_contributing => false, :valid_contributing => false}
+      }
     }
 
     # readme validations only
@@ -84,16 +103,22 @@ describe LearnLinter do
       :license => 
         {:present_license=>false, :valid_license=>false},
       :readme => 
-        {:present_readme=>false, :valid_readme=>false}}
+        {:present_readme=>false, :valid_readme=>false},
+      :contributing =>
+        {:present_contributing => false, :valid_contributing => false}
+      }
     }
 
-     let(:present_and_valid_readme) {
+    let(:present_and_valid_readme) {
       {:dot_learn =>
         {:present_dotlearn=>false, :valid_yaml=>false, :valid_whitespace=>false, :attributes => false},
       :license => 
         {:present_license=>false, :valid_license=>false},
       :readme => 
-        {:present_readme=>true, :valid_readme=>true}}
+        {:present_readme=>true, :valid_readme=>true},
+      :contributing =>
+        {:present_contributing => false, :valid_contributing => false}
+      }
     }
 
     let(:invalid_readme) {
@@ -102,7 +127,48 @@ describe LearnLinter do
       :license => 
         {:present_license=>false, :valid_license=>false},
       :readme => 
-        {:present_readme=>true, :valid_readme=>false}}
+        {:present_readme=>true, :valid_readme=>false},
+      :contributing =>
+        {:present_contributing => false, :valid_contributing => false}
+      }
+    }
+
+    # contributing validations only
+
+    let(:valid_contributing) {
+      {:dot_learn =>
+        {:present_dotlearn=>false, :valid_yaml=>false, :valid_whitespace=>false, :attributes => false},
+      :license => 
+        {:present_license=>false, :valid_license=>false},
+      :readme => 
+        {:present_readme=>false, :valid_readme=>false},
+      :contributing =>
+        {:present_contributing => true, :valid_contributing => true}
+      }
+    }
+
+    let(:invalid_contributing) {
+      {:dot_learn =>
+        {:present_dotlearn=>false, :valid_yaml=>false, :valid_whitespace=>false, :attributes => false},
+      :license => 
+        {:present_license=>false, :valid_license=>false},
+      :readme => 
+        {:present_readme=>false, :valid_readme=>false},
+      :contributing =>
+        {:present_contributing => true, :valid_contributing => false}
+      }
+    }
+
+    let(:missing_contributing) {
+      {:dot_learn =>
+        {:present_dotlearn=>false, :valid_yaml=>false, :valid_whitespace=>false, :attributes => false},
+      :license => 
+        {:present_license=>false, :valid_license=>false},
+      :readme => 
+        {:present_readme=>false, :valid_readme=>false},
+      :contributing =>
+        {:present_contributing => false, :valid_contributing => false}
+      }
     }
 
 
@@ -169,7 +235,24 @@ describe LearnLinter do
         expect {linter.lint_directory}.to_not output.to_stdout
       end
     end
+
+    context 'contributing validations' do 
+      it 'approves a directory with a valid contributing file' do 
+        linter = LearnLinter.new(FIXTURES_PATH + 'valid_contributing')
+        expect(linter.lint_directory).to eq(valid_contributing)
+      end
+
+      it 'reports on an invalid license' do 
+        linter = LearnLinter.new(FIXTURES_PATH + 'invalid_contributing')
+        expect(linter.lint_directory).to eq(invalid_contributing)
+      end
+
+      it 'reports on a missing license' do 
+        linter = LearnLinter.new(FIXTURES_PATH + 'missing_contributing')
+        expect(linter.lint_directory).to eq(missing_contributing)
+      end
+    end
+
+  
   end
 end
-
-
