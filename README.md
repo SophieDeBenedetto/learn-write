@@ -9,6 +9,8 @@ Gem to accompany Learn curriculum development. Install gem and run from command 
 * valid license content in that file. 
 * precense of `README.md`
 * valid code snippets in `README.md`
+* precense of `CONTRIBUTING.md`
+* valid contributing content in that file. 
 
 
 ## Installation
