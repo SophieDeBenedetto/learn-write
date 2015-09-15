@@ -242,12 +242,12 @@ describe LearnLinter do
         expect(linter.lint_directory).to eq(valid_contributing)
       end
 
-      it 'reports on an invalid license' do 
+      it 'reports on an invalid contribution file' do 
         linter = LearnLinter.new(FIXTURES_PATH + 'invalid_contributing')
         expect(linter.lint_directory).to eq(invalid_contributing)
       end
 
-      it 'reports on a missing license' do 
+      it 'reports on a missing contribution file' do 
         linter = LearnLinter.new(FIXTURES_PATH + 'missing_contributing')
         expect(linter.lint_directory).to eq(missing_contributing)
       end
