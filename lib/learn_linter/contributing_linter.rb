@@ -6,7 +6,7 @@ class ContributingLinter
     directory_file = File.open(file).read
     valid_file = VALID_FILE.read
     if sanitize_whitespace(directory_file) == sanitize_whitespace(valid_file)
-      learn_error.license_error[:valid_contributing] = true
+      learn_error.contributing_error[:valid_contributing] = true
       learn_error.valid_contributing = {message: "valid contributing", color: :green}
     end
   end

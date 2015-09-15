@@ -2,7 +2,7 @@ class LearnError < StandardError
   attr_accessor :filepath, :valid_yaml, :valid_license, 
   :present_learn, :present_license, :present_readme, :yaml_error, 
   :readme_error, :license_error, :valid_readme, :correct_yaml_content, 
-  :valid_contributing, :present_contributing
+  :valid_contributing, :present_contributing, :contributing_error
 
   ESCAPES = { :green  => "\033[32m",
               :yellow => "\033[33m",
@@ -14,7 +14,7 @@ class LearnError < StandardError
     @yaml_error = {present_dotlearn: false, valid_yaml: false, valid_whitespace: false, attributes: false}
     @readme_error = {present_readme: false, valid_readme: false}
     @license_error = {present_license: false, valid_license: false}
-    @contributing_error = {present_contributing: false, valid_license: false}
+    @contributing_error = {present_contributing: false, valid_contributing: false}
 
     @correct_yaml_content = {message: ".learn file must have 'tags', 'resources' and 'languages' keys", color: :yellow}
 
@@ -43,7 +43,8 @@ class LearnError < StandardError
     {
       dot_learn: yaml_error,
       license: license_error,
-      readme: readme_error
+      readme: readme_error,
+      contributing: contributing_error
     }
     
   end
