@@ -13,7 +13,7 @@ class LearnError < StandardError
     @yaml_error = {present_dotlearn: false, valid_yaml: false, valid_whitespace: false, attributes: false}
     @readme_error = {present_readme: false, valid_readme: false}
     @license_error = {present_license: false, valid_license: false}
-    @contributing_error = {present_license: false, valid_license: false}
+    @contributing_error = {present_contributing: false, valid_license: false}
 
     @correct_yaml_content = {message: ".learn file must have 'tags', 'resources' and 'languages' keys", color: :yellow}
 
