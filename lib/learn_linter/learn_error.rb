@@ -1,7 +1,8 @@
 class LearnError < StandardError
   attr_accessor :filepath, :valid_yaml, :valid_license, 
   :present_learn, :present_license, :present_readme, :yaml_error, 
-  :readme_error, :license_error, :valid_readme, :correct_yaml_content
+  :readme_error, :license_error, :valid_readme, :correct_yaml_content, 
+  :valid_contributing, :present_contributing
 
   ESCAPES = { :green  => "\033[32m",
               :yellow => "\033[33m",
