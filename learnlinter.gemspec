@@ -24,7 +24,7 @@ Gem::Specification.new do |spec|
   # spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   # spec.bindir        = "exe"
   # spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
-  spec.files = ['lib/learn_linter.rb', 'bin/learn-lint', 'lib/learn_linter/learn_error.rb', 'lib/learn_linter/version.rb', 'lib/learn_linter/license_linter.rb', 'lib/learn_linter/readme_linter.rb', 'lib/learn_linter/valid_license.md', 'lib/learn_linter/yaml_linter.rb'] 
+  spec.files = ['lib/learn_linter.rb', 'bin/learn-lint', 'lib/learn_linter/learn_error.rb', 'lib/learn_linter/version.rb', 'lib/learn_linter/license_linter.rb', 'lib/learn_linter/readme_linter.rb', 'lib/learn_linter/valid_license.md', 'lib/learn_linter/yaml_linter.rb', 'lib/learn_linter/contributing_linter.rb', 'lib/learn_linter/valid_contributing.md'] 
   spec.executables << 'learn-lint'
   spec.require_paths = ["lib"]
 
