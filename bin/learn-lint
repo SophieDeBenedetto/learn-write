@@ -11,7 +11,7 @@ elsif ARGV.length == 1 && ARGV[0] == "quiet"
   lint = LearnLinter.new(dir, "quiet")
 elsif ARGV.length > 1 && ARGV[1] == "quiet"
   lint = LearnLinter.new(ARGV[0], "quiet").lint_directory
-elsif ARGV.length > 1 && ARG[1] != "quiet"
+elsif ARGV.length > 1 && ARGV[1] != "quiet"
   puts "please use 'learn-lint directory_name quiet' or 'learn-lint directory_name"
 elsif ARGV.length == 1
   lint = LearnLinter.new(ARGV[0]).lint_directory
