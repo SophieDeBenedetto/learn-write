@@ -1,3 +1,4 @@
+require 'pry'
 class LicenseLinter 
 
   VALID_FILE = File.open(File.expand_path(File.dirname(__FILE__)) + '/valid_license.md')
@@ -12,6 +13,6 @@ class LicenseLinter
   end
 
   def self.sanitize_whitespace(file)
-    file.split("\n").delete_if { |l| l.empty? }
+    file.split.delete_if {|char| char.empty? || char == "\n"}
   end
 end
