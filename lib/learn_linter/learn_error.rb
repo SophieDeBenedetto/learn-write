@@ -49,10 +49,13 @@ class LearnError < StandardError
     
   end
 
+  def result_message
+    [present_learn, valid_yaml, correct_yaml_content, present_license, valid_license, present_readme, valid_readme, valid_contributing, present_contributing]
+  end
+
 
   def result_output
-    all_results = [present_learn, valid_yaml, correct_yaml_content, present_license, valid_license, present_readme, valid_readme, valid_contributing, present_contributing]
-    all_results.each do |result|
+    result_message.each do |result|
       emit(result)
     end
   end

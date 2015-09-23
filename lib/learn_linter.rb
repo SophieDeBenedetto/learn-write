@@ -27,7 +27,9 @@ class LearnLinter
     @learn_error.total_errors
   end
 
-
+  def result_message
+    @learn_error.result_message
+  end
 
   def has_file?(file)
     Dir.entries(filepath).include?(file)
