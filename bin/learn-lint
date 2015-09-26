@@ -4,7 +4,7 @@ require 'optparse'
 require_relative '../lib/learn_linter.rb'
 
 if ARGV.length == 0
-  dir = File.expand_path(File.dirname(File.dirname(__FILE__)))
+  dir = Dir.pwd
   lint = LearnLinter.new(dir).lint_directory
 elsif ARGV.length == 1 && ARGV[0] == "quiet"
   dir = File.expand_path(File.dirname(File.dirname(__FILE__)))
