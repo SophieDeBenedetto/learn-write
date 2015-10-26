@@ -55,6 +55,7 @@ end
 ```
 
 We want our teens to be able to tell their friends about their awesome CD collection, so let's create a method, `my_cd_collection`, that allows them to `put`s out the names of each of their cds:
+
 ```ruby
 class NinetiesTeen
 
@@ -378,6 +379,18 @@ class Coupon
     @discount = "$10 off!"
   end
 end
+```
+
+```
+here is some code
+```
+
+``` 
+ :here is some more code
+```
+
+```
+ |
 ```
 
 
