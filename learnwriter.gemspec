@@ -1,15 +1,15 @@
 # coding: utf-8
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'learn_linter/version'
+require 'learn_writer/version'
 
 Gem::Specification.new do |spec|
-  spec.name          = "learn_linter"
-  spec.version       = LearnLinter::VERSION
+  spec.name          = "learn_writer"
+  spec.version       = LearnWriter::VERSION
   spec.authors       = ["Sophie DeBenedetto"]
   spec.email         = ["sophie.debenedetto@gmail.com"]
 
-  spec.summary       = %q{can lint a directory for valid .learn, license files}
+  spec.summary       = %q{can write a .learn, license, contributing file}
   spec.homepage      = ""
   spec.license       = "MIT"
 
@@ -24,8 +24,8 @@ Gem::Specification.new do |spec|
   # spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   # spec.bindir        = "exe"
   # spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
-  spec.files = ['lib/learn_linter.rb', 'bin/learn-lint', 'lib/learn_linter/learn_error.rb', 'lib/learn_linter/version.rb', 'lib/learn_linter/license_linter.rb', 'lib/learn_linter/readme_linter.rb', 'lib/learn_linter/valid_license.md', 'lib/learn_linter/yaml_linter.rb', 'lib/learn_linter/contributing_linter.rb', 'lib/learn_linter/valid_contributing.md'] 
-  spec.executables << 'learn-lint'
+  spec.files = ['lib/learn_writer.rb', 'bin/learn-write', 'lib/learn_writer/version.rb', 'lib/learn_writer/valid_license.md', 'lib/learn_writer/valid_contributing.md'] 
+  spec.executables << 'learn-writ'
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.10"
