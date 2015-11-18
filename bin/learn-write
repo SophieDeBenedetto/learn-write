@@ -2,7 +2,7 @@
 require_relative '../lib/learn_writer.rb'
 
 
-dir = File.expand_path(File.dirname(File.dirname(__FILE__)))
+dir = Dir.pwd
 LearnWriter.new(dir).write_metadata
 
 # if ARGV.length == 0

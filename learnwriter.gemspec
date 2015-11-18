@@ -25,7 +25,7 @@ Gem::Specification.new do |spec|
   # spec.bindir        = "exe"
   # spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.files = ['lib/learn_writer.rb', 'bin/learn-write', 'lib/learn_writer/version.rb', 'lib/learn_writer/valid_license.md', 'lib/learn_writer/valid_contributing.md'] 
-  spec.executables << 'learn-writ'
+  spec.executables << 'learn-write'
   spec.require_paths = ["lib"]
 
   spec.add_development_dependency "bundler", "~> 1.10"
