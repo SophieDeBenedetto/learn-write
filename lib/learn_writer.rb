@@ -2,8 +2,10 @@ require 'fileutils'
 
 class LearnWriter
 
+  VALID_DOT_LEARN = File.open(File.expand_path(File.dirname(__FILE__)) + '/learn_writer/valid_dot_learn.yml')
   VALID_CONTRIBUTING = File.open(File.expand_path(File.dirname(__FILE__)) + '/learn_writer/valid_contributing.md')
   VALID_LICENSE = File.open(File.expand_path(File.dirname(__FILE__)) + '/learn_writer/valid_license.md')
+
   
   attr_accessor :filepath
 
@@ -19,7 +21,9 @@ class LearnWriter
 
   def write_dot_learn
     dot_learn = "#{filepath}/.learn"
-    FileUtils.touch(dot_learn)
+    dot_learn_content = File.read(VALID_DOT_LEARN)
+    file = FileUtils.touch(dot_learn)[0]
+    File.open(file, 'w') { |file| file.write(dot_learn_content) }
   end
 
   def write_contributing
