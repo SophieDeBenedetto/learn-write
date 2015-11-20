@@ -1,7 +1,12 @@
 #!/usr/bin/env ruby
 require_relative '../lib/learn_writer.rb'
 
-
-dir = Dir.pwd
-LearnWriter.new(dir).write_metadata
+if ARGV.length == 0
+  dir = Dir.pwd
+  LearnWriter.new(dir).write_metadata
+elsif ARGV.length == 1
+  LearnWriter.new(ARGV[0]).write_metadata
+else
+  puts 'please use learn-write <directory name> or run learn-write from within the directory you want to add metadata to because you just cannot even'
+end
 

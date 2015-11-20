@@ -1,4 +1,5 @@
 require 'fileutils'
+require 'pry'
 
 class LearnWriter
 
@@ -20,24 +21,23 @@ class LearnWriter
   end
 
   def write_dot_learn
-    dot_learn = "#{filepath}/.learn"
-    dot_learn_content = File.read(VALID_DOT_LEARN)
-    file = FileUtils.touch(dot_learn)[0]
-    File.open(file, 'w') { |file| file.write(dot_learn_content) }
+    unless Dir.entries(filepath).include?('.learn')
+      create_and_write_file(".learn", VALID_DOT_LEARN)
+    end
   end
 
   def write_contributing
-    contributing = "#{filepath}/CONTRIBUTING.md"
-    contributing_content = File.read(VALID_CONTRIBUTING)
-    file = FileUtils.touch(contributing)[0]
-    File.open(file, 'w') { |file| file.write(contributing_content) }
+    create_and_write_file("CONTRIBUTING.md", VALID_CONTRIBUTING)
   end
 
   def write_license
-    license = "#{filepath}/LICENSE.md"
-    license_content = File.read(VALID_LICENSE)
-    file = FileUtils.touch(license)[0]
-    File.open(file, 'w') { |file| file.write(license_content) }
+    create_and_write_file("LICENSE.md", VALID_LICENSE)
+  end
 
+  def create_and_write_file(file_name, file_content)
+    file_name = "#{filepath}/#{file_name}"
+    file_content = File.read(file_content)
+    file = FileUtils.touch(file_name)[0]
+    File.open(file, 'w') { |file| file.write(file_content) }
   end
 end
