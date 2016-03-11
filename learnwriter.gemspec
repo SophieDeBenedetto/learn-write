@@ -24,7 +24,16 @@ Gem::Specification.new do |spec|
   # spec.files         = `git ls-files -z`.split("\x0").reject { |f| f.match(%r{^(test|spec|features)/}) }
   # spec.bindir        = "exe"
   # spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
-  spec.files = ['lib/learn_writer.rb', 'bin/learn-write', 'lib/learn_writer/version.rb', 'lib/learn_writer/valid_license.md', 'lib/learn_writer/valid_contributing.md', 'lib/learn_writer/valid_dot_learn.yml'] 
+  spec.files = [
+    'lib/learn_writer.rb',
+    'bin/learn-write',
+    'lib/learn_writer/version.rb',
+    'lib/learn_writer/valid_license.md',
+    'lib/learn_writer/valid_contributing.md',
+    'lib/learn_writer/valid_dot_learn.yml',
+    'lib/learn_writer/valid_dot_editorconfig',
+    'lib/learn_writer/valid_dot_gitignore'
+  ]
   spec.executables << 'learn-write'
   spec.require_paths = ["lib"]
 
